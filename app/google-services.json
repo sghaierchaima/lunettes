@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "723135974740",
+    "project_id": "lunettes-c1832",
+    "storage_bucket": "lunettes-c1832.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723135974740:android:7dd3aea4a89c854b5e4cc1",
+        "android_client_info": {
+          "package_name": "com.example.lunettes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIW4IXYAOn-XokDhkSlqB9nN3zd9BI_Nk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

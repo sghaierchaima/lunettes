@@ -93,7 +93,7 @@
                 android:layout_height="285dp"
                 android:contentDescription="Image lunettes tendance"
                 android:scaleType="centerCrop"
-                android:src="@drawable/lunette" />
+                android:src="@drawable/enlignemagasin" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -101,7 +101,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:padding="8dp" />
-
+            <ImageView
+                android:id="@+id/cartIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/panier"
+                android:contentDescription="Panier"
+                android:layout_margin="16dp"
+                android:layout_gravity="end|top" />
             <Button
                 android:id="@+id/logoutBtn"
                 android:layout_width="wrap_content"

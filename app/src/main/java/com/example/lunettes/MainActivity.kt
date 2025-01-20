@@ -2,6 +2,7 @@ package com.example.lunettes
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var lunettesAdapter: categories
+    private lateinit var categories: categories
     private val firestore = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,13 +34,27 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        val cartIcon: ImageView = findViewById(R.id.cartIcon)
+
+        // Ajouter un clic sur l'icône pour ouvrir CartActivity
+
+        cartIcon.setOnClickListener {
+            val cartItems = CartManager.getAllCartItems()
+            if (cartItems.isEmpty()) {
+                Toast.makeText(this, "Le panier est vide !", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, CartActivity::class.java)
+                intent.putParcelableArrayListExtra("cart_items", ArrayList(CartManager.getAllCartItems()))
+                startActivity(intent)
+            }
+        }
     }
 
     private fun setupRecyclerView() {
-        lunettesAdapter = categories() // Initialisation de l'adaptateur
+        categories = categories() // Initialisation de l'adaptateur
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = lunettesAdapter
+            adapter = categories
         }
     }
 
@@ -54,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                         categoriesList.add(categorie)
                     }
                 }
-                lunettesAdapter.setData(categoriesList) // Mise à jour de l'adaptateur avec les données récupérées
+                categories.setData(categoriesList) // Mise à jour de l'adaptateur avec les données récupérées
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(this, "Erreur : ${exception.message}", Toast.LENGTH_SHORT).show()

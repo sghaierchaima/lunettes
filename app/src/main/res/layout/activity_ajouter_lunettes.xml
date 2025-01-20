@@ -20,7 +20,7 @@ tools:context=".ajouterLunettes">
         android:scaleType="centerCrop"
         android:layout_gravity="center"
         android:background="@drawable/lunette"
-        android:contentDescription="Image animée de fleur" />
+        android:contentDescription="Image animée de lunettes" />
 
     <!-- Espacement après l'image -->
     <View
@@ -112,7 +112,7 @@ tools:context=".ajouterLunettes">
         android:id="@+id/add_lunettes_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ajouter la fleur"
+        android:text="Ajouter lunettes"
         android:backgroundTint="#082AE6"
         android:textColor="@android:color/white" />
 </LinearLayout>

@@ -66,10 +66,10 @@ class ajouterLunettes : AppCompatActivity() {
             if (imageUri != null) {
                 firebaseController.uploadImage(imageUri!!) { imageUrl ->
                     lunette.imageUrl = imageUrl ?: ""
-                    addFleurToDatabase(lunette)
+                    addLunettesToDatabase(lunette)
                 }
             } else {
-                addFleurToDatabase(lunette)
+                addLunettesToDatabase(lunette)
             }
         }
     }
@@ -87,7 +87,7 @@ class ajouterLunettes : AppCompatActivity() {
             }
         }
 
-    private fun addFleurToDatabase(lunette: Lunettes) {
+    private fun addLunettesToDatabase(lunette: Lunettes) {
         val lunetteMap = hashMapOf(
             "nom" to lunette.nom,
             "categorie" to lunette.categorie,
